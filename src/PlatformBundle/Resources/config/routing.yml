@@ -5,3 +5,11 @@ app_platform_index:
 app_platform_sendmail:
     path:     /sendmail
     defaults: { _controller: PlatformBundle:Advert:mail}
+
+app_blog:
+    path:     /blog
+    defaults: { _controller: PlatformBundle:Blog:blog}
+
+app_article_list:
+    path:     /article/list
+    defaults: { _controller: PlatformBundle:Article:list}

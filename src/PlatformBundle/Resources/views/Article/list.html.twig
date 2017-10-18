@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Symfony!</title>
+</head>
+<body>
+<h1>Listes des articles</h1>
+<ul>
+    {% for article in listArticles %}
+        <li>{{ article.title }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
