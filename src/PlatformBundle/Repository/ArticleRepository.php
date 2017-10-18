@@ -14,9 +14,9 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findArticleByCategory($category){
         $qb = $this->createQueryBuilder('a');
-            $qb->where('a.category = :category')
+        $qb->where('a.category = :category')
+            ->orderBy('a.category')
             ->setParameter('category', $category);
-
 
         return $qb->getQuery()->getResult();
     }

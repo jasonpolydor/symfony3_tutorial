@@ -14,15 +14,15 @@ class QueryController extends Controller
     public function listAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $listCategories = $em->getRepository(Category::class)->findAll();
+        $categories = $em->getRepository(Category::class)->findAll();
 
-        foreach ($listCategories as $category) {
-            $articlesCategory[] = $em->getRepository(Article::class)->findArticleByCategory($category);
-            dump($articlesCategory);
+        foreach ($categories as $category) {
+            $articles[$category->getName()] = $em->getRepository(Article::class)->findArticleByCategory($category);
         }
 
         return $this->render('PlatformBundle:Query:list.html.twig',[
-            'articlesCategory' => $articlesCategory,
+            'categories' => $categories,
+            'articles' => $articles
         ]);
     }
 }

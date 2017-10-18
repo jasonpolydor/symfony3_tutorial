@@ -5,16 +5,15 @@
 {% block body %}
     <h1>Listes des articles par category</h1>
     <ul>
-        {% for articles in articlesCategory %}
+        {% for category, article in articles %}
             <ul>
-                {% for article in articles %}
-                    <li>{{ article.category.name }}</li>
+                <li>{{ category }}
                     <ul>
-                        <li>
-                            {{ article.title }}
-                        </li>
+                        {% for a in article %}
+                            <li>{{ a.title }}</li>
+                        {% endfor %}
                     </ul>
-                {% endfor %}
+                </li>
             </ul>
         {% endfor %}
     </ul>
