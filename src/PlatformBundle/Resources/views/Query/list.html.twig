@@ -1,0 +1,22 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}PlatformBundle:Query:list{% endblock %}
+
+{% block body %}
+    <h1>Listes des articles par category</h1>
+    <ul>
+        {% for articles in articlesCategory %}
+            <ul>
+                {% for article in articles %}
+                    <li>{{ article.category.name }}</li>
+                    <ul>
+                        <li>
+                            {{ article.title }}
+                        </li>
+                    </ul>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

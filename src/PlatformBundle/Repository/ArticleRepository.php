@@ -2,7 +2,7 @@
 
 namespace PlatformBundle\Repository;
 
-use PlatformBundle\Entity\Category;
+use PlatformBundle\Entity\Article;
 
 /**
  * ArticleRepository
@@ -12,16 +12,12 @@ use PlatformBundle\Entity\Category;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
-//    public function findArticleByCategory(Category $category){
-//        $qb = $this->createQueryBuilder('ac');
-//
-//        $qb->select('ac')
-//            ->addSelect('b')
-//            ->leftJoin('ac.category','c')
-//            ->leftJoin('b.article','a')
-//            ->where('a.category = :category')
-//            ->setParameter('category', $category);
-//
-//        return $qb->getQuery()->getResult();
-//    }
+    public function findArticleByCategory($category){
+        $qb = $this->createQueryBuilder('a');
+            $qb->where('a.category = :category')
+            ->setParameter('category', $category);
+
+
+        return $qb->getQuery()->getResult();
+    }
 }

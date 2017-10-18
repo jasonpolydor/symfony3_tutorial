@@ -10,6 +10,7 @@ app_blog:
     path:     /blog
     defaults: { _controller: PlatformBundle:Blog:blog}
 
-app_article_list:
-    path:     /article/list
-    defaults: { _controller: PlatformBundle:Article:list}
+app_query_list:
+    path:     /query/list
+    defaults: { _controller: PlatformBundle:Query:list}
+

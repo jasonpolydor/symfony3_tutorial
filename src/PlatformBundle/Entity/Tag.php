@@ -32,7 +32,7 @@ class Tag
     /**
      * @var Article
      *
-     * @ORM\ManyToMany(targetEntity="Article", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="PlatformBundle\Entity\Article", mappedBy="tags")
      *
      */
     private $articles;
