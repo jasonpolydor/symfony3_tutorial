@@ -1,7 +1,4 @@
-platform:
+app_platform:
     resource: "@PlatformBundle/Resources/config/routing.yml"
-    prefix:   /platform
+    prefix: /p
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation

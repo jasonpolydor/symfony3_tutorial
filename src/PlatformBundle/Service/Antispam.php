@@ -35,4 +35,53 @@ class Antispam{
     {
         return strlen($text) < $this->minLength;
     }
+
+    /**
+     * @return \Swift_Mailer
+     */
+    public function getMailer()
+    {
+        return $this->mailer;
+    }
+
+    /**
+     * @param \Swift_Mailer $mailer
+     */
+    public function setMailer($mailer)
+    {
+        $this->mailer = $mailer;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * @param mixed $locale
+     */
+    public function setLocale($locale)
+    {
+        $this->locale = $locale;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMinLength()
+    {
+        return $this->minLength;
+    }
+
+    /**
+     * @param mixed $minLength
+     */
+    public function setMinLength($minLength)
+    {
+        $this->minLength = $minLength;
+    }
+
 }

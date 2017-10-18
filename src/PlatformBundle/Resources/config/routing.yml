@@ -1,3 +1,7 @@
-platform_homepage:
-    path:     /
-    defaults: { _controller: PlatformBundle:Advert:index }
+app_platform_index:
+    path:     /platform
+    defaults: { _controller: PlatformBundle:Advert:index}
+
+app_platform_sendmail:
+    path:     /sendmail
+    defaults: { _controller: PlatformBundle:Advert:mail}
