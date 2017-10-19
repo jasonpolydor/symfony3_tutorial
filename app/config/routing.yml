@@ -1,3 +1,15 @@
+platform_tag:
+    resource: "@PlatformBundle/Controller/TagController.php"
+    type:     annotation
+
+platform_category:
+    resource: "@PlatformBundle/Controller/CategoryController.php"
+    type:     annotation
+
+platform_article:
+    resource: "@PlatformBundle/Controller/ArticleController.php"
+    type:     annotation
+
 app_platform:
     resource: "@PlatformBundle/Resources/config/routing.yml"
     prefix: /p

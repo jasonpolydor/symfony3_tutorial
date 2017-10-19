@@ -49,7 +49,5 @@ class QueryController extends Controller
 
         dump($id);
         dump($name);
-
-        $form->add('choice_list', ChoiceType::class, ['choices' => array($id, $name)]);
     }
 }

@@ -56,7 +56,7 @@ class Article
         return $this->id;
     }
 
-    /**
+    /**tag
      * Set title
      *
      * @param string $title
@@ -83,17 +83,17 @@ class Article
     /**
      * @return Tag
      */
-    public function getTag()
+    public function getTags()
     {
-        return $this->tag;
+        return $this->tags;
     }
 
     /**
      * @param Tag $tag
      */
-    public function setTag($tag)
+    public function setTags($tags)
     {
-        $this->tag = $tag;
+        $this->tags = $tags;
     }
 
     /**
