@@ -18,4 +18,34 @@
         {% endfor %}
     </ul>
 
+    <h1>Obtenir le category d'un article</h1>
+    <div class="col-md-12">
+        <div  id="filters">
+            {{ form_start(searchByCategory, {'action': path('category'), 'method': 'GET'}) }}
+            {{ form_row(searchByCategory.articles) }}
+            {{ form_errors(searchByCategory) }}
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-warning" name="filter_action" value="filter"> <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filter</button>
+                </div>
+            </div>
+            {{ form_end(searchByCategory) }}
+        </div>
+    </div>
+
+    <h1>Obtenir les articles d'un category</h1>
+    <div class="col-md-12">
+        <div  id="filters">
+            {{ form_start(searchByArticle, {'action': path('article'), 'method': 'GET'}) }}
+            {{ form_row(searchByArticle.category) }}
+            {{ form_errors(searchByArticle) }}
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-warning" name="filter_action" value="filter"> <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filter</button>
+                </div>
+            </div>
+            {{ form_end(searchByArticle) }}
+        </div>
+    </div>
+
 {% endblock %}

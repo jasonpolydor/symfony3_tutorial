@@ -5,6 +5,8 @@ namespace PlatformBundle\Controller;
 use PlatformBundle\Entity\Article;
 use PlatformBundle\Entity\Category;
 use PlatformBundle\Entity\Tag;
+use PlatformBundle\Form\CategoryFilterQueryType;
+use PlatformBundle\Form\ArticleFilterQueryType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -18,8 +20,8 @@ class QueryController extends Controller
         $article = $em->getRepository(Article::class);
         $categories = $category->findAll();
 
-        $search = $this->searchByCategory($category);
-
+        $searchByCategory = $this->searchByCategory();
+        $searchByArticle = $this->searchByArticle();
 
         foreach ($categories as $c) {
             $articles[$c->getName()] = $article->findArticleByCategory($c);
@@ -28,26 +30,17 @@ class QueryController extends Controller
         return $this->render('PlatformBundle:Query:list.html.twig', [
             'categories' => $categories,
             'articles' => $articles,
-            'search' => $search
+            'searchByCategory' => $searchByCategory->createView(),
+            'searchByArticle' => $searchByArticle->createView(),
         ]);
     }
 
     private function searchByCategory()
     {
-        $category = new Category();
+        return $this->createForm('PlatformBundle\Form\CategoryFilterQueryType');
+    }
 
-        $search = $category ->findBy([],['name'=>'ASC']);
-        dump($search);
-
-        $form = $this->createForm(CategoryType::class, $category);
-
-        foreach ($search as $value) {
-            dump($value);
-            $id[] = $value->getId();
-            $name[] = $value->getName();
-        }
-
-        dump($id);
-        dump($name);
+    private function searchByArticle(){
+        return $this->createForm('PlatformBundle\Form\ArticleFilterQueryType');
     }
 }
