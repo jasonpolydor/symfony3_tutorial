@@ -41,15 +41,14 @@ class TagListener extends Controller implements EventSubscriber
         $tags = $em->getRepository(Tag::class);
 
 
-        $exist = $tags->findOneBy(array('name' => $tagName ),array('name' => 'ASC'));
+        $exist = $tags->findOneBy(array('name' => $tagName), array('name' => 'ASC'));
 
         if($exist){
-            dump('exist already');
-            $em->detach($entity);
-            exit;
+            dump('already exist');
+            //exit;
         }else{
             dump('you can insert');
-            exit;
+            //exit;
         }
     }
 
