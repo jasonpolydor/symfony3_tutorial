@@ -13,16 +13,26 @@ web_profiler:
 
 monolog:
     handlers:
-        article:
-            type: stream
-            path: "%kernel.logs_dir%/%kernel.environment%-article.log"
-            level: debug
-            channels: [article]
         main:
             type: stream
             path: '%kernel.logs_dir%/%kernel.environment%.log'
             level: debug
-            channels: [!event, !article]
+            channels: ['!event', '!article', '!doctrine']
+        article:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%-article.log"
+            level: debug
+            channels: ['article']
+        category:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%-category.log"
+            level: debug
+            channels: ['category']
+        doctrine :
+            type: stream
+            path: '%kernel.logs_dir%/%kernel.environment%-doctrine.log'
+            level: debug
+            channels: ['doctrine']
         console:
             type: console
             process_psr_3_messages: false
@@ -41,6 +51,7 @@ monolog:
         #chromephp:
         #    type: chromephp
         #    level: info
+    channels: ['article','category']
 
 swiftmailer:
     transport: gmail

@@ -9,9 +9,16 @@ services:
     platform.listener.article.logger:
         class: PlatformBundle\Listener\ArticleListener
         arguments:
-            - "@logger"
+            - "@monolog.logger.article"
         tags:
-            - { name: monolog.logger, channel: "article" }
+            - { name: doctrine.event_subscriber }
+
+    platform.listener.category.logger:
+        class: PlatformBundle\Listener\CategoryListener
+        arguments:
+            - "@monolog.logger.category"
+        tags:
+            - { name: doctrine.event_subscriber }
 
 parameters:
     valeur_spam: 70

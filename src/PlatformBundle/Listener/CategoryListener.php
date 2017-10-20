@@ -4,10 +4,10 @@ namespace PlatformBundle\Listener;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
-use PlatformBundle\Entity\Article;
+use PlatformBundle\Entity\Category;
 use Psr\Log\LoggerInterface;
 
-class ArticleListener implements EventSubscriber
+class CategoryListener implements EventSubscriber
 {
     protected $logger;
 
@@ -18,11 +18,11 @@ class ArticleListener implements EventSubscriber
     public function postPersist(LifecycleEventArgs $args){
         $entity = $args->getObject();
 
-        if(!$entity instanceof Article){
+        if(!$entity instanceof Category){
             return;
         }
 
-        $this->logger->info(sprintf('Article %s avec le ID %s a ete ajouter dans la bdd!',$entity->getTitle(),$entity->getId()));
+        $this->logger->info(sprintf('Category %s avec le ID %s a ete ajouter dans la bdd!',$entity->getName(),$entity->getId()));
     }
 
     /**
