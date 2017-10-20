@@ -6,5 +6,12 @@ services:
         class: PlatformBundle\Service\Antispam
         arguments: ["@mailer", "%locale%", "5"]
 
+    platform.listener.article.logger:
+        class: PlatformBundle\Listener\ArticleListener
+        arguments:
+            - "@logger"
+        tags:
+            - { name: monolog.logger, channel: "article" }
+
 parameters:
     valeur_spam: 70

@@ -13,11 +13,16 @@ web_profiler:
 
 monolog:
     handlers:
+        article:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%-article.log"
+            level: debug
+            channels: [article]
         main:
             type: stream
             path: '%kernel.logs_dir%/%kernel.environment%.log'
             level: debug
-            channels: ['!event']
+            channels: [!event, !article]
         console:
             type: console
             process_psr_3_messages: false
