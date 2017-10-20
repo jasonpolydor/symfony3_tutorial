@@ -20,5 +20,12 @@ services:
         tags:
             - { name: doctrine.event_subscriber }
 
+    platform.listener.tag.logger:
+        class: PlatformBundle\Listener\TagListener
+        arguments:
+            - "@monolog.logger.tag"
+        tags:
+            - { name: doctrine.event_subscriber }
+
 parameters:
     valeur_spam: 70

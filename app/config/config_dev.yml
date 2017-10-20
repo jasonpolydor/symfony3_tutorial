@@ -28,6 +28,11 @@ monolog:
             path: "%kernel.logs_dir%/%kernel.environment%-category.log"
             level: debug
             channels: ['category']
+        tag:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%-tag.log"
+            level: debug
+            channels: ['tag']
         doctrine :
             type: stream
             path: '%kernel.logs_dir%/%kernel.environment%-doctrine.log'
@@ -51,7 +56,7 @@ monolog:
         #chromephp:
         #    type: chromephp
         #    level: info
-    channels: ['article','category']
+    channels: ['article','category','tag']
 
 swiftmailer:
     transport: gmail
