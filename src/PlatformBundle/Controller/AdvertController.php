@@ -62,7 +62,7 @@ class AdvertController extends Controller
 //       $url = $this->get('router')->generate('app_platform_index');
 //
 //       return $this->redirect($url);
-        
+
         return $this->redirectToRoute('app_platform_index');
     }
 
