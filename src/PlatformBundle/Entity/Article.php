@@ -107,7 +107,7 @@ class Article
     /**
      * @param Category $category
      */
-    public function setCategory($category)
+    public function setCategory(Category $category = null)
     {
         $this->category = $category;
     }

@@ -2,6 +2,7 @@
 
 namespace PlatformBundle\Form;
 
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -28,6 +29,10 @@ class ArticleType extends AbstractType
                 'class' => 'PlatformBundle\Entity\Category',
                 'choice_label' => 'name',
                 'placeholder' => 'Please choose',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('s')
+                        ->orderBy('s.name', 'ASC');
+                },
                 'empty_data' => null,
                 'required' => false
  
