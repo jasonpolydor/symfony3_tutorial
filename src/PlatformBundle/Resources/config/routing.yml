@@ -14,3 +14,16 @@ app_query_list:
     path:     /query/list
     defaults: { _controller: PlatformBundle:Query:list}
 
+app_test:
+    path:     /test/{id}
+    defaults: { _controller: PlatformBundle:Advert:test}
+
+app_test2:
+    path:     /test2/{id}
+    defaults: { _controller: PlatformBundle:Advert:test2}
+
+
+app_test3:
+    path:     /test3
+    defaults: { _controller: PlatformBundle:Advert:test3}
+
